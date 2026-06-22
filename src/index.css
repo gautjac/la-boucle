@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #0c0e10;
+  color: #c7cdd6;
+  font-family: "Sora", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* subtle vertical brushed-steel gradient on the rack */
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(34, 227, 214, 0.05), transparent 60%),
+    linear-gradient(180deg, #0e1114 0%, #0c0e10 40%, #0a0c0e 100%);
+}
+
+/* Tabular mono numerics everywhere they show times/BPM/% */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Range slider — DAW fader feel */
+input[type="range"].fader {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #1d2127;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.9) inset;
+  outline: none;
+}
+input[type="range"].fader::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #c6ff3f;
+  border: 2px solid #0c0e10;
+  box-shadow: 0 0 14px -1px rgba(198, 255, 63, 0.7);
+  cursor: pointer;
+}
+input[type="range"].fader::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #c6ff3f;
+  border: 2px solid #0c0e10;
+  box-shadow: 0 0 14px -1px rgba(198, 255, 63, 0.7);
+  cursor: pointer;
+}
+input[type="range"].fader.cyan::-webkit-slider-thumb {
+  background: #22e3d6;
+  box-shadow: 0 0 14px -1px rgba(34, 227, 214, 0.7);
+}
+input[type="range"].fader.cyan::-moz-range-thumb {
+  background: #22e3d6;
+  box-shadow: 0 0 14px -1px rgba(34, 227, 214, 0.7);
+}
+
+/* numeric inputs */
+input.numfield {
+  font-variant-numeric: tabular-nums;
+}
+input.numfield::-webkit-outer-spin-button,
+input.numfield::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2f37;
+  border-radius: 999px;
+  border: 2px solid #0c0e10;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a414c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
